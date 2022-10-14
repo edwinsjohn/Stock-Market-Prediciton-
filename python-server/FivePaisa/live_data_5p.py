@@ -38,30 +38,30 @@ class LiveData:
         return self.data
 
 
-    #
-    # def getPrice(self):
-    #     def on_message(ws,message):
-    #         obj = json.loads(message)
-    #         time=int(ts)
-    #         # time = int(obj[0]["TickDt"][6:16])
-    #         # print(time, time % 60)
-    #         if self.starting_ == True:
-    #             open = int(obj[0]["LastRate"])
-    #             high = open
-    #             low = open
-    #             self.starting_ == False
-    #             print("mod")
-    #         if (time % 60 == 0):
-    #             open = int(obj[0]["LastRate"])
-    #             high = open
-    #             low = open
-    #         close = int(obj[0]["LastRate"])
-    #         if (high < close):
-    #             high = close
-    #         if (low > close):
-    #             low = close
-    #         # collection.insert_one({"time": time, "open": open, "high": high, "low": low, "close": close})
-    #         print(high, low, open, close)
+    
+    def getPrice(self):
+        def on_message(ws,message):
+            obj = json.loads(message)
+            time=int(ts)
+            # time = int(obj[0]["TickDt"][6:16])
+            # print(time, time % 60)
+            if self.starting_ == True:
+                open = int(obj[0]["LastRate"])
+                high = open
+                low = open
+                self.starting_ == False
+                print("mod")
+            if (time % 60 == 0):
+                open = int(obj[0]["LastRate"])
+                high = open
+                low = open
+            close = int(obj[0]["LastRate"])
+            if (high < close):
+                high = close
+            if (low > close):
+                low = close
+            # collection.insert_one({"time": time, "open": open, "high": high, "low": low, "close": close})
+            print(high, low, open, close)
 
 
 
